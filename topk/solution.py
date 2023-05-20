@@ -1,14 +1,13 @@
-nums = [1,1,1,2,2,3]
-k = 2
-values = {}
-res=[]
-for num in nums:
-    if num not in values:
-        values[num]= 1
-    else:
-        values[num]= values[num] +1 
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        values = {}
+        res=[]
+        for num in nums:
+            values[num] = values.get(num,0)+1 
         
-for i in range(k):
-    max_value_key = max(values, key=values.get)
-    values.pop(max_value_key)
-    res.append(max_value_key)
+        for i in range(k):
+            max_value_key = max(values, key=values.get)
+            values.pop(max_value_key)
+            res.append(max_value_key)
+
+        return res
