@@ -1,7 +1,7 @@
 class Solution:
 	def evalRPN(self, tokens: list[str]):
 		stack = []
-		operands=set({ "+","-","/","*" })
+		operands={ "+","-","/","*" }
 		for token in tokens:
 			if token in operands:
 				val1 = stack.pop()
@@ -15,4 +15,4 @@ class Solution:
 
 input = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
 solution = Solution()
-solution.evalRPN(input)
+assert solution.evalRPN(input) == 22
